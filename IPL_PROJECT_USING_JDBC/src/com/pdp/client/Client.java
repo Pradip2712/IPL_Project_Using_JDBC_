@@ -36,7 +36,6 @@ public class Client {
 			System.out.println("| 5. Exit...               |");
 			System.out.println("----------------------------");
 
-
 			try {
 				choice = sc.nextInt();
 			} catch (Exception e) {
@@ -73,7 +72,7 @@ public class Client {
 
 				String res = c.insertPla(pjrno, pname, run, wicket, tname);
 				System.out.println(res);
-				System.out.println();	//for new line
+				System.out.println(); // for new line
 				break;
 			}
 			case 2: {
@@ -106,10 +105,10 @@ public class Client {
 						System.out.println("| ALL TEAM NAME IN DATABASE |");
 						System.out.println("|===========================|");
 						for (String teamnames : at) {
-							System.out.printf("| %-25s |\n" , teamnames);
+							System.out.printf("| %-25s |\n", teamnames);
 						}
 						System.out.println("-----------------------------");
-						System.out.println();//for new line
+						System.out.println();// for new line
 
 						break;
 					}
@@ -126,28 +125,32 @@ public class Client {
 
 						Set<String> pn = c.getPlayerName(tname);
 						System.out.println("===============================");
-						System.out.println("|    ALL Player's in "+tname +"      |");
+						System.out.println("|    ALL Player's in " + tname + "      |");
 						System.out.println("|=============================|");
 						for (String pnames : pn) {
-							System.out.printf("| %-27s |\n" , pnames);
+							System.out.printf("| %-27s |\n", pnames);
 							System.out.println("|-----------------------------|");
 
 						}
-						System.out.println(); 	//for new line
+						System.out.println(); // for new line
 
 						break;
 					}
 					case 3: {
 						List<Player> lop = c.getAllPlaInfo();
-						System.out.println("=============================================================================");
-						System.out.println("|                   ALL PLAYER'S IN DATABASE                                |");
-						System.out.println("|===========================================================================|");
+						System.out.println(
+								"=============================================================================");
+						System.out.println(
+								"|                   ALL PLAYER'S IN DATABASE                                |");
+						System.out.println(
+								"|===========================================================================|");
 						for (Player player : lop) {
-							System.out.printf("| %-73s |\n",player);
-							System.out.println("----------------------------------------------------------------------------");
+							System.out.printf("| %-73s |\n", player);
+							System.out.println(
+									"----------------------------------------------------------------------------");
 
 						}
-						System.out.println();  //for new line
+						System.out.println(); // for new line
 						break;
 					}
 					case 4: {
@@ -167,7 +170,7 @@ public class Client {
 			}
 			case 3: {
 				int cho = 0;
-				String pname=null;
+				String pname = null;
 				do {
 					System.out.println("===============================");
 					System.out.println("|         Update Menu         |");
@@ -197,107 +200,106 @@ public class Client {
 
 					switch (cho) {
 					case 1: {
-							int ujn=0;
-							try {
-								System.out.println("enter player name : ");
-								pname=br.readLine();
-								System.out.println("enter Updated jersey num : ");
-								ujn=sc.nextInt();
-							}catch(Exception e) {
-								System.out.println("Please enter valid input..");
-								e.printStackTrace();
-								break;
-							}
-							String res=c.updatePlaJrno(pname,ujn);
-							System.out.println(res);
-							System.out.println();  //for new line
+						int ujn = 0;
+						try {
+							System.out.println("enter player name : ");
+							pname = br.readLine();
+							System.out.println("enter Updated jersey num : ");
+							ujn = sc.nextInt();
+						} catch (Exception e) {
+							System.out.println("Please enter valid input..");
+							e.printStackTrace();
+							break;
+						}
+						String res = c.updatePlaJrno(pname, ujn);
+						System.out.println(res);
+						System.out.println(); // for new line
 						break;
 					}
 					case 2: {
-						
-						int run=0;
+
+						int run = 0;
 						try {
 							System.out.println("enter player name : ");
-							pname=br.readLine();
+							pname = br.readLine();
 							System.out.println("Enter Updated runs : ");
-							run=sc.nextInt();
-						}catch(Exception e) {
+							run = sc.nextInt();
+						} catch (Exception e) {
 							System.out.println("Please enter valid input..");
 							e.printStackTrace();
 							break;
 						}
-						String res=c.updateRun(pname,run);
+						String res = c.updateRun(pname, run);
 						System.out.println(res);
-						System.out.println();  //for new line
+						System.out.println(); // for new line
 						break;
 					}
 					case 3: {
-						int wicket=0;
+						int wicket = 0;
 						try {
 							System.out.println("enter player name : ");
-							pname=br.readLine();
+							pname = br.readLine();
 							System.out.println("Enter Updated Wickets : ");
-							wicket=sc.nextInt();
-						}catch(Exception e) {
+							wicket = sc.nextInt();
+						} catch (Exception e) {
 							System.out.println("Please enter valid input..");
 							e.printStackTrace();
 							break;
 						}
-						String res=c.updateWicket(pname,wicket);
+						String res = c.updateWicket(pname, wicket);
 						System.out.println(res);
-						System.out.println();  //for new line
+						System.out.println(); // for new line
 						break;
 					}
 					case 4: {
-						String tname=null;
+						String tname = null;
 						try {
 							System.out.println("Enter player name : ");
-							pname=br.readLine();
+							pname = br.readLine();
 							System.out.println("Enter Updated Team name : ");
-							tname=br.readLine();
-						}catch(Exception e)
-						{
+							tname = br.readLine();
+						} catch (Exception e) {
 							System.out.println("Please enter valid input..");
 							e.printStackTrace();
 							break;
 						}
-						String res=c.updateTname(pname,tname);
+						String res = c.updateTname(pname, tname);
 						System.out.println(res);
-						System.out.println();  //for new line
+						System.out.println(); // for new line
 						break;
 					}
 					case 5: {
-						int ujn=0;
-						String un=null;
-						int ur=0;
-						int uw=0;
-						String utn=null;
+						int ujn = 0;
+						String un = null;
+						int ur = 0;
+						int uw = 0;
+						String utn = null;
 						try {
 							System.out.println("Enter player name ");
-							pname=br.readLine();
+							pname = br.readLine();
 							System.out.println("Enter Updated jersey num ");
 							ujn = sc.nextInt();
 							System.out.println("Enter Updated player name ");
-							un=br.readLine();
+							un = br.readLine();
 							System.out.println("Enter Updated Player run ");
-							ur=sc.nextInt();
+							ur = sc.nextInt();
 							System.out.println("Enter Updated Player wicket ");
-							uw=sc.nextInt();
+							uw = sc.nextInt();
 							System.out.println("Enter Updated Team name ");
-							utn=br.readLine();
-							
-							String res=c.updateInfo(pname,ujn,un,ur,uw,utn);
+							utn = br.readLine();
+
+							String res = c.updateInfo(pname, ujn, un, ur, uw, utn);
 							System.out.println(res);
 							System.out.println(); // for new line
-							
+
 						} catch (Exception e) {
 							System.out.println("enter valid input..");
 							e.printStackTrace();
 						}
-						
+
 						break;
 					}
-					case 6:{
+					case 6: {
 						break;
 					}
 					default: {
@@ -324,7 +326,7 @@ public class Client {
 
 				String res = c.deletePlaInfo(pname);
 				System.out.println(res);
-				System.out.println(); //for new line
+				System.out.println(); // for new line
 
 				break;
 			}

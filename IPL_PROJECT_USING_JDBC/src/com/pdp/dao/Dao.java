@@ -29,42 +29,39 @@ public class Dao {
 		}
 		return conn;
 	}
-	
-	
 
+	
 //	insertInfo method for inserting data into table
 	public String insertInfo(int pjrno, String pname, int run, int wicket, String tname) {
 		String res = null;
 		try {
-		Connection conn=createConn();
-		String query="INSERT INTO player (jrno,name,run,wicket,tname) VALUES (?,?,?,?,?)";
-		PreparedStatement ps=conn.prepareCall(query);
-		
-		ps.setInt(1, pjrno);
-		ps.setString(2, pname);
-		ps.setInt(3, run);
-		ps.setInt(4, wicket);
-		ps.setString(5, tname);
-		
-		 ps.executeUpdate();
-		res="Insert data successfully...";
-		
-		}catch(Exception e) {
+			Connection conn = createConn();
+			String query = "INSERT INTO player (jrno,name,run,wicket,tname) VALUES (?,?,?,?,?)";
+			PreparedStatement ps = conn.prepareCall(query);
+
+			ps.setInt(1, pjrno);
+			ps.setString(2, pname);
+			ps.setInt(3, run);
+			ps.setInt(4, wicket);
+			ps.setString(5, tname);
+
+			ps.executeUpdate();
+			res = "Insert data successfully...";
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return res;
 	}
 
 	
-	
-	//getAllData method for Getting the all data from table
+	// getAllData method for Getting the all data from table
 	public List<Player> getAllData() {
 		List<Player> lop = new ArrayList<Player>();
 		try {
 
-//			Class.forName(path);
-//			Connection conn = DriverManager.getConnection(url, uname, pass);
+
 			Connection conn = createConn();
 			String query = "Select * from player";
 			PreparedStatement ps = conn.prepareStatement(query);
@@ -88,153 +85,135 @@ public class Dao {
 		return lop;
 	}
 
-
 	
 //	update the jersey no
-	public String updateJrno(String pname,int ujn) {
+	public String updateJrno(String pname, int ujn) {
 		String res = null;
-		Connection conn=createConn();
-		String query="UPDATE player set jrno=? WHERE name=?";
+		Connection conn = createConn();
+		String query = "UPDATE player set jrno=? WHERE name=?";
 		try {
-			PreparedStatement ps=conn.prepareStatement(query);
+			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setInt(1, ujn);
 			ps.setString(2, pname);
-			
+
 			ps.executeUpdate();
-			
-			res="Jersey number updated successfully...";
+
+			res = "Jersey number updated successfully...";
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		return res;
 	}
-	
+
 	
 //	update run
 	public String updateRun(String pname, int run) {
-		String res=null;
-		
-		Connection conn=createConn();
-		String query="UPDATE player SET run=? WHERE name=?";
+		String res = null;
+
+		Connection conn = createConn();
+		String query = "UPDATE player SET run=? WHERE name=?";
 		try {
-			PreparedStatement ps=conn.prepareStatement(query);
+			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setInt(1, run);
 			ps.setString(2, pname);
-			
+
 			ps.executeUpdate();
-			res="Player Runs updated successfully...";
-			
+			res = "Player Runs updated successfully...";
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		return res;
 	}
 
+	
 //	update the wickets
 	public String updateWicket(String pname, int wicket) {
-		String res=null;
-		Connection conn=createConn();
-		String query="UPDATE player SET run=? WHERE name=?";
+		String res = null;
+		Connection conn = createConn();
+		String query = "UPDATE player SET run=? WHERE name=?";
 		try {
-			PreparedStatement ps=conn.prepareStatement(query);
+			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setInt(1, wicket);
 			ps.setString(2, pname);
-			
+
 			ps.executeUpdate();
-			res="Player Wicket's Updated successfully...";
-			
+			res = "Player Wicket's Updated successfully...";
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 
 		return res;
 	}
+
 	
 //	update player team
 	public String updateTname(String pname, String tname) {
-		String res=null;
-		Connection conn=createConn();
-		String query="UPDATE player SET tname=? WHERE name=?";
+		String res = null;
+		Connection conn = createConn();
+		String query = "UPDATE player SET tname=? WHERE name=?";
 		try {
-			PreparedStatement ps=conn.prepareStatement(query);
+			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setString(1, tname);
 			ps.setString(2, pname);
-			
+
 			ps.executeUpdate();
-			res="Player Team name Updated successfully...";
-			
+			res = "Player Team name Updated successfully...";
+
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}		
+		}
 		return res;
 	}
-	
+
 	
 //	update all info
 	public String updateInfo(String pname, int ujn, String un, int ur, int uw, String utn) {
-		String res=null;
-		Connection conn=createConn();
-		String query="UPDATE player SET jrno=?,name=?,run=?,wicket=?,tname=? WHERE name=?";
+		String res = null;
+		Connection conn = createConn();
+		String query = "UPDATE player SET jrno=?,name=?,run=?,wicket=?,tname=? WHERE name=?";
 		try {
-			PreparedStatement ps=conn.prepareStatement(query);
+			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setInt(1, ujn);
 			ps.setString(2, un);
 			ps.setInt(3, ur);
 			ps.setInt(4, uw);
 			ps.setString(5, utn);
 			ps.setString(6, pname);
-			
+
 			ps.executeUpdate();
-			
-			res="Player Info Updated successfully...";
-			
+
+			res = "Player Info Updated successfully...";
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		
+
 		return res;
 	}
-	
-	
 
-	//delete method
+	
+	// delete method
 	public String deletePlaInfo(String pname) {
 
-		String res=null;
-		Connection conn=createConn();
-		String query= "DELETE FROM player WHERE name=?";
+		String res = null;
+		Connection conn = createConn();
+		String query = "DELETE FROM player WHERE name=?";
 		try {
-			PreparedStatement ps=conn.prepareStatement(query);
+			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setString(1, pname);
 			ps.executeUpdate();
-			
-			res="Player information deleted successfully...";
-			
+
+			res = "Player information deleted successfully...";
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		return res;
 	}
-
-
-
-	
-
-
-
-
-
-
-	
-
-
-
-
-	
 
 }
