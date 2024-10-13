@@ -1,6 +1,6 @@
 package com.pdp.service;
 
-import java.util.HashSet;
+import java.util.HashSet; 
 import java.util.List;
 import java.util.Set;
 
@@ -12,6 +12,7 @@ public class Service {
 	Dao d = new Dao();
 	List<Player> lop = d.getAllData();
 
+//	check the player is present or not 
 	public String insertPlayer(int pjrno, String pname, int run, int wicket, String tname) {
 		int count = 0;
 		String res = null;
@@ -154,8 +155,8 @@ public class Service {
 		return res;
 	}
 
-	
-	// delete method
+//	check the player is present or not 
+//	 if player is present to delete this player
 	public String deletePlaInfo(String pname) {
 		int count = 0;
 		String res = null;

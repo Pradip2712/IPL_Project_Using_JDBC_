@@ -1,7 +1,7 @@
 package com.pdp.entity;
 
 public class Player {
-
+ 
 	private int jrno;
 	private String name;
 	private int run;
