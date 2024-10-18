@@ -1,6 +1,6 @@
 package com.pdp.client;
 
-import java.io.BufferedReader; 
+import java.io.BufferedReader;  
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
@@ -87,7 +87,13 @@ public class Client {
 					System.out.println("|----------------------------------------------|");
 					System.out.println("| 3. See All Players and it's info in the table|");
 					System.out.println("|----------------------------------------------|");
-					System.out.println("| 4. Main Menu                                 |");
+					System.out.println("| 4. See All BatsMan                           |");
+					System.out.println("|----------------------------------------------|");
+					System.out.println("| 5. See All Bollers                           |");
+					System.out.println("|----------------------------------------------|");
+					System.out.println("| 6. See All All-Rounders                      |");
+					System.out.println("|----------------------------------------------|");
+					System.out.println("| 7. Main Menu                                 |");
 					System.out.println("------------------------------------------------");
 
 					try {
@@ -132,28 +138,64 @@ public class Client {
 							System.out.println("|-----------------------------|");
 
 						}
+						System.out.println("**************************************************************************************************");				
 						System.out.println(); // for new line
 
 						break;
 					}
 					case 3: {
 						List<Player> lop = c.getAllPlaInfo();
-						System.out.println(
-								"=============================================================================");
-						System.out.println(
-								"|                   ALL PLAYER'S IN DATABASE                                |");
-						System.out.println(
-								"|===========================================================================|");
+						System.out.println("=============================================================================");
+						System.out.println("|                   ALL PLAYER'S IN DATABASE                                |");
+						System.out.println("|===========================================================================|");
 						for (Player player : lop) {
 							System.out.printf("| %-73s |\n", player);
-							System.out.println(
-									"----------------------------------------------------------------------------");
+							System.out.println("|---------------------------------------------------------------------------|");
 
 						}
+						System.out.println("**************************************************************************************************");				
+
 						System.out.println(); // for new line
 						break;
 					}
 					case 4: {
+						System.out.println("=============================================================================");
+						System.out.println("|                   ALL Bat'sMan In player Table                            |");
+						System.out.println("|===========================================================================|");
+							List<Player> lob=c.getAllBatsMan();
+							for (Player player : lob) {
+								System.out.printf("| %-73s |\n",player);
+								System.out.println("|---------------------------------------------------------------------------|");
+							}
+							System.out.println("**************************************************************************************************");				
+						break;
+					}
+					case 5: {
+						System.out.println("=============================================================================");
+						System.out.println("|                   ALL Boller's In player Table                            |");
+						System.out.println("|===========================================================================|");
+						List<Player> loboller=c.getAllBoller();
+						for (Player player : loboller) {
+							System.out.printf("| %-73s |\n",player);
+							System.out.println("|---------------------------------------------------------------------------|");
+							}
+						System.out.println("**************************************************************************************************");				
+						break;
+						}			
+	
+					case 6: {
+						System.out.println("=============================================================================");
+						System.out.println("|                   ALL all-rounder's In player Table                       |");
+						System.out.println("|===========================================================================|");
+						List<Player> loaar=c.getAllRounder();
+						for (Player player : loaar) {
+							System.out.printf("| %-73s |\n",player);
+							System.out.println("|--------------------------------------------------------------------------|");			
+							}
+						System.out.println("**************************************************************************************************");				
+						break;
+					}
+					case 7: {
 
 						break;
 					}
@@ -164,7 +206,7 @@ public class Client {
 
 					}
 
-				} while (ch != 4);
+				} while (ch != 7);
 
 				break;
 			}

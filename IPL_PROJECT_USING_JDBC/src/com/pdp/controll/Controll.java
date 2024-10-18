@@ -38,6 +38,27 @@ public class Controll {
 	}
 
 	
+//	List of all batsman
+	public List<Player> getAllBatsMan() {
+		List<Player> lop=s.getAllBatsMan();
+		return lop;
+	}
+	
+//	list of all boller
+	public List<Player> getAllBoller() {
+		List<Player> lop=s.getAllBoller();
+		return lop;
+	}
+	
+//	list of all All-Rounders
+
+	public List<Player> getAllRounder() {
+		List<Player> loaar=s.getAllRounder();
+		return loaar;
+	}
+	
+	
+	
 //	update jersey no
 	public String updatePlaJrno(String pname, int ujn) {
 		String res = s.updatePlaJrno(pname, ujn);
@@ -78,5 +99,13 @@ public class Controll {
 		String res = s.deletePlaInfo(pname);
 		return res;
 	}
+
+
+
+
+
+
+
+	
 
 }
