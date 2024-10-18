@@ -212,7 +212,7 @@ public class Service {
 	}
 
 //	check the player is present or not 
-//	 if player is present to delete this player
+//	 if player is present to delete this players
 	public String deletePlaInfo(String pname) {
 		int count = 0;
 		String res = null;
