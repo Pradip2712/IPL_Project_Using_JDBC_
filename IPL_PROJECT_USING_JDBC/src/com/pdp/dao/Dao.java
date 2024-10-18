@@ -180,7 +180,7 @@ public class Dao {
 		return res;
 	}
 
-//	
+	
 	// delete method
 	public String deletePlaInfo(String pname) {
 
